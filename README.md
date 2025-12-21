@@ -1,0 +1,230 @@
+<p align="center">
+    <a href="https://github.com/yiisoft" target="_blank">
+        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
+    </a>
+    <h1 align="center">Yii 2 Advanced Project Template</h1>
+    <br>
+</p>
+
+Yii 2 Advanced Project Template is a skeleton [Yii 2](https://www.yiiframework.com/) application best for
+developing complex Web applications with multiple tiers.
+
+The template includes three tiers: front end, back end, and console, each of which
+is a separate Yii application.
+
+The template is designed to work in a team development environment. It supports
+deploying the application in different environments.
+
+Documentation is at [docs/guide/README.md](docs/guide/README.md).
+
+[![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
+[![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
+[![build](https://github.com/yiisoft/yii2-app-advanced/workflows/build/badge.svg)](https://github.com/yiisoft/yii2-app-advanced/actions?query=workflow%3Abuild)
+
+DIRECTORY STRUCTURE
+-------------------
+
+```
+common
+    config/              contains shared configurations
+    mail/                contains view files for e-mails
+    models/              contains model classes used in both backend and frontend
+    tests/               contains tests for common classes    
+console
+    config/              contains console configurations
+    controllers/         contains console controllers (commands)
+    migrations/          contains database migrations
+    models/              contains console-specific model classes
+    runtime/             contains files generated during runtime
+backend
+    assets/              contains application assets such as JavaScript and CSS
+    config/              contains backend configurations
+    controllers/         contains Web controller classes
+    models/              contains backend-specific model classes
+    runtime/             contains files generated during runtime
+    tests/               contains tests for backend application    
+    views/               contains view files for the Web application
+    web/                 contains the entry script and Web resources
+frontend
+    assets/              contains application assets such as JavaScript and CSS
+    config/              contains frontend configurations
+    controllers/         contains Web controller classes
+    models/              contains frontend-specific model classes
+    runtime/             contains files generated during runtime
+    tests/               contains tests for frontend application
+    views/               contains view files for the Web application
+    web/                 contains the entry script and Web resources
+    widgets/             contains frontend widgets
+vendor/                  contains dependent 3rd-party packages
+environments/            contains environment-based overrides
+```
+
+# ดูน ออโต้ พาร์ท (Dune's Auto Parts)
+
+ระบบจัดการร้านค้าอะไหล่รถยนต์ พัฒนาด้วย Yii2 Advanced Template
+
+## คุณสมบัติหลัก
+
+### 📦 จัดการสินค้า (Parts Management)
+- รองรับอะไหล่ใหม่ (แท้/OEM) และอะไหล่มือสอง (นำเข้า ญี่ปุ่น/ยุโรป Grade A+)
+- ระบบ SKU อัตโนมัติ
+- เกรดอะไหล่มือสอง (A+, A, B)
+- รูปภาพหลายรูปต่อสินค้า
+- ความเข้ากันได้กับรถหลายรุ่น
+- ระบบจัดการสต็อก พร้อมประวัติการเคลื่อนไหว
+- แจ้งเตือนสินค้าใกล้หมด
+
+### 👥 จัดการลูกค้า (Customer Management)
+- ประเภทลูกค้า: บุคคลทั่วไป, บริษัท, อู่ซ่อมรถ
+- ระบบรหัสลูกค้าอัตโนมัติ
+- ประวัติการซื้อและยอดสะสม
+- ทะเบียนรถของลูกค้า
+- ระบบเครดิต
+
+### 🛒 จัดการคำสั่งซื้อ (Order Management)
+- Workflow สถานะครบถ้วน: รอยืนยัน → ยืนยันแล้ว → เตรียมสินค้า → จัดส่งแล้ว → สำเร็จ
+- ระบบตรวจสอบการชำระเงิน (สลิป)
+- รองรับหลายช่องทางการจัดส่ง
+- พิมพ์ใบเสร็จ/ใบส่งของ
+- Tracking Number
+
+### 💬 ระบบแชท/สอบถาม (Inquiry/Chat System)
+- รองรับหลายช่องทาง: LINE, Facebook, โทรศัพท์, เว็บไซต์, หน้าร้าน
+- ประวัติการสนทนา
+- พร้อมเชื่อมต่อ AI Chatbot
+
+### 📊 รายงาน (Reports)
+- รายงานยอดขาย (รายวัน/รายเดือน/รายปี)
+- รายงานสต็อกสินค้า
+- สินค้าขายดี
+- กราฟแสดงผล
+
+### ⚙️ ตั้งค่าระบบ (Settings)
+- ข้อมูลบริษัท
+- เวลาทำการ
+- การตั้งค่าสต็อก
+- การตั้งค่า Chatbot
+
+## การติดตั้ง
+
+### ความต้องการของระบบ
+- PHP >= 8.0
+- MySQL >= 5.7
+- Composer
+
+### ขั้นตอนการติดตั้ง
+
+1. **Clone โปรเจค**
+```bash
+git clone https://github.com/your-repo/dunes-autoparts.git
+cd dunes-autoparts
+```
+
+2. **ติดตั้ง Dependencies**
+```bash
+composer install
+```
+
+3. **สร้างฐานข้อมูล**
+```bash
+mysql -u root -p -e "CREATE DATABASE dunes_autoparts CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+```
+
+4. **ตั้งค่าการเชื่อมต่อฐานข้อมูล**
+แก้ไขไฟล์ `common/config/main.php` ส่วน db component
+
+5. **รัน Migration**
+```bash
+./yii migrate --migrationPath=@console/migrations
+```
+
+6. **ตั้งค่า Web Server**
+- ชี้ Document Root ของ backend ไปที่ `/backend/web`
+- ชี้ Document Root ของ API ไปที่ `/api/web`
+
+7. **เข้าสู่ระบบ**
+- URL: http://www.autoparts.test/backend/web
+- Username: `admin`
+- Password: `admin123`
+
+## โครงสร้างโปรเจค
+
+```
+dunes-autoparts/
+├── api/                    # REST API สำหรับ Chatbot และ Mobile
+│   ├── config/
+│   ├── controllers/
+│   └── web/
+├── backend/                # ระบบหลังบ้านสำหรับจัดการ
+│   ├── config/
+│   ├── controllers/
+│   ├── models/
+│   ├── views/
+│   └── web/
+├── common/                 # ส่วนที่ใช้ร่วมกัน
+│   ├── config/
+│   ├── models/
+│   └── mail/
+├── console/                # CLI Commands
+│   ├── config/
+│   └── migrations/
+└── frontend/               # เว็บไซต์สำหรับลูกค้า (อนาคต)
+```
+
+## โมเดลข้อมูล
+
+| Model | Description |
+|-------|-------------|
+| User | ผู้ใช้งานระบบ |
+| Part | สินค้า/อะไหล่ |
+| PartCategory | หมวดหมู่สินค้า |
+| VehicleBrand | ยี่ห้อรถ |
+| VehicleModel | รุ่นรถ |
+| EngineType | ประเภทเครื่องยนต์ |
+| Supplier | ผู้จำหน่าย |
+| Customer | ลูกค้า |
+| CustomerVehicle | รถของลูกค้า |
+| Order | คำสั่งซื้อ |
+| OrderItem | รายการในคำสั่งซื้อ |
+| Payment | การชำระเงิน |
+| Inquiry | การสอบถาม |
+| InquiryMessage | ข้อความในการสอบถาม |
+| Setting | ตั้งค่าระบบ |
+| StockMovement | ประวัติการเคลื่อนไหวสต็อก |
+| ActivityLog | ประวัติการใช้งานระบบ |
+
+## API Endpoints
+
+### Chatbot API
+- `POST /api/chatbot/webhook/line` - LINE Webhook
+- `POST /api/chatbot/webhook/facebook` - Facebook Webhook
+- `POST /api/chatbot/message` - ส่งข้อความ
+- `GET /api/chatbot/products` - ค้นหาสินค้า
+- `GET /api/chatbot/order/{orderNumber}` - ตรวจสอบสถานะคำสั่งซื้อ
+
+### Parts API
+- `GET /api/parts` - รายการสินค้า
+- `GET /api/parts/{id}` - รายละเอียดสินค้า
+- `GET /api/parts/search` - ค้นหาสินค้า
+- `GET /api/parts/categories` - หมวดหมู่สินค้า
+
+### Vehicles API
+- `GET /api/vehicles/brands` - รายการยี่ห้อรถ
+- `GET /api/vehicles/models/{brandId}` - รายการรุ่นรถ
+
+## เวลาทำการ
+
+- **เปิดทำการ:** 08:30 - 17:30
+- **ตัดรอบจัดส่ง:** 14:00
+
+## ผู้พัฒนา
+
+พัฒนาโดย Claude AI สำหรับ Dune
+
+## License
+
+Proprietary - สงวนลิขสิทธิ์
+
+---
+
+🚗 **ดูน ออโต้ พาร์ท** - อะไหล่ใหม่แท้/OEM และอะไหล่มือสองนำเข้า Grade A+

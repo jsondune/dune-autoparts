@@ -1,0 +1,11 @@
+# Disable script execution
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|phps|cgi|pl|py)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Only allow specific file types
+<FilesMatch "^[^.]+\.(jpg|jpeg|png|gif|webp|svg)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>

@@ -1,0 +1,44 @@
+{
+    "name": "dunes/autoparts",
+    "description": "Dune's Auto Parts - ระบบจัดการร้านอะไหล่รถยนต์",
+    "keywords": ["yii2", "autoparts", "inventory", "thai"],
+    "homepage": "https://dunesautoparts.com",
+    "type": "project",
+    "license": "proprietary",
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.0",
+        "yiisoft/yii2": "~2.0.45",
+        "yiisoft/yii2-bootstrap5": "~2.0.2",
+        "yiisoft/yii2-symfonymailer": "~2.0.3"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.1.0",
+        "yiisoft/yii2-gii": "~2.2.0",
+        "yiisoft/yii2-faker": "~2.0.0"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "enabled": false
+        },
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "common\\": "common/",
+            "backend\\": "backend/",
+            "console\\": "console/",
+            "api\\": "api/",
+            "frontend\\": "frontend/"
+        }
+    }
+}
