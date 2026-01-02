@@ -75,7 +75,7 @@ class VehicleModel extends ActiveRecord
 
     public function getDisplayName()
     {
-        $name = $this->name;
+        $name = $this->name_th;
         if ($this->generation) {
             $name .= ' ' . $this->generation;
         }
